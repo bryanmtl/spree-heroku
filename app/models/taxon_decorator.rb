@@ -1,5 +1,5 @@
 Spree::Taxon.class_eval do
-  if Rails.env.production?
+  unless Rails.env.development?
     if ENV['S3_KEY'] && ENV['S3_SECRET'] && ENV['S3_BUCKET']
       S3_OPTIONS = {
         :storage => 's3',
